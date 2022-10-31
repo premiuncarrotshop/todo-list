@@ -1,0 +1,39 @@
+@import url('./css/normalize.css');
+@import url('./css/reset.css');
+
+.todolist {
+  padding: 24px 0;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.todolist .todolist-title {
+  margin-bottom: 48px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.todolist .todolist-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 70px;
+}
+
+.todolist .todolist-form {
+  margin-bottom: 40px;
+}
+
+.todolist .todolist-form input {
+  width: 100%;
+  border-bottom: 1px solid #808080;
+}
+
+.todolist .todolist-list .todolist-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todolist .todolist-list .todolist-item:not(:last-child) {
+  margin-bottom: 12px;
+}
