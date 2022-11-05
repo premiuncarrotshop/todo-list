@@ -26,6 +26,7 @@
 
 .todolist .todolist-form input {
   width: 100%;
+  padding: 4px;
   border-bottom: 1px solid #808080;
 }
 
