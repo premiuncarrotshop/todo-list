@@ -6,20 +6,26 @@ let todos = [];
 
 todoForm.addEventListener('submit', handleTodoFormSubmit);
 
-function saveTodos(newTodo) {
+function saveTodos() {
   localStorage.setItem('todos', JSON.stringify(todos));
 }
 
 function deleteTodo(e) {
   const li = e.target.parentNode;
   li.remove();
+  todos = todos.filter((todo) => {
+    todo.id !== parseInt(li.id)
+  })
+
+  saveTodos();
 }
 
-function showTodo(newTodo) {
+function showTodo(newTodoObj) {
   const li = document.createElement('li');
+  li.id = newTodoObj.id;
 
   const span = document.createElement('span');
-  span.innerText = newTodo;
+  span.innerText = newTodoObj.text;
 
   const button = document.createElement('button');
   button.innerText = '❎';
@@ -36,10 +42,15 @@ function handleTodoFormSubmit(e) {
   const newTodo = todoInput.value;
   todoInput.value = '';
 
-  todos.push(newTodo);
+  const newTodoObj = {
+    id: Date.now(),
+    text: newTodo
+  }
 
-  showTodo(newTodo);
-  saveTodos(newTodo);
+  todos.push(newTodoObj);
+
+  showTodo(newTodoObj);
+  saveTodos();
 }
 
 const savedTodos = localStorage.getItem('todos');
